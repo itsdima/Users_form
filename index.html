@@ -7,13 +7,22 @@
 		<script>
 			$(document).ready(function(){ 
 				$('button').click(function(){
-					$('#first').text($('#first_name').val());
-					$('#last').text($('#last_name').val());
-					$('#mail').text($('#email').val());
-					$('#num').text($('#contact').val()); 
-					document.getElementById('myForm').reset(); 
-				}); 
-			}); 
+            		var newRow = "<tr>";
+            		var td = "<td>"
+            		var close_td = "</td>";
+            		var rowClose = "</td></tr>";
+
+            		newRow += td + $('#first_name').val() + close_td;
+            		newRow += td + $('#last_name').val() + close_td;
+            		newRow += td + $('#email').val() + close_td;
+            		newRow += td + $('#contact').val() + rowClose; 
+
+            	$("table").append(newRow);
+            	document.getElementById('myForm').reset(); 
+        			});
+
+    			});
+
 		</script>
 		<style>
 			.container {
@@ -50,12 +59,6 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td id="first"></td>
-							<td id="last"></td>
-							<td id="mail"></td>
-							<td id="num"></td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
